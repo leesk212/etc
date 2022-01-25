@@ -56,8 +56,8 @@
 extern int debug;
 extern int debug_fast_path;
 
-#define DEBUG_LOG if (debug) printf
-#define DEBUG_LOG_FAST_PATH if (debug_fast_path) printf
+#define DEBUG_LOG  printf
+#define DEBUG_LOG_FAST_PATH  printf
 #define FDEBUG_LOG if (debug) fprintf
 #define FDEBUG_LOG_FAST_PATH if (debug_fast_path) sprintf
 #define SDEBUG_LOG if (debug) fprintf
@@ -316,7 +316,7 @@ sock_listen:
             switch (pl_type) {
                 case 0: // RDMA_BUF_DESC
                     /* Receiving RDMA data (address, size, rkey etc.) from socket as a triger to start RDMA Read/Write operation */
-                    DEBUG_LOG_FAST_PATH("Iteration %d: Waiting to Receive message of size %lu\n", cnt, sizeof desc_str);   
+                    printf("Iteration %d: Waiting to Receive message of size %lu\n", cnt, sizeof desc_str);   
                     r_size = recv(sockfd, desc_str, pl_size * sizeof(char), MSG_WAITALL);
                     if (r_size != sizeof desc_str) {
                         fprintf(stderr, "FAILURE: Couldn't receive RDMA data for iteration %d (errno=%d '%m')\n", cnt, errno);

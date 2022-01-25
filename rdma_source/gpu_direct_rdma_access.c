@@ -58,8 +58,8 @@
 int debug = 0;
 int debug_fast_path = 0;
 
-#define DEBUG_LOG if (debug) printf
-#define DEBUG_LOG_FAST_PATH if (debug_fast_path) printf
+#define DEBUG_LOG printf
+#define DEBUG_LOG_FAST_PATH printf
 #define FDEBUG_LOG if (debug) fprintf
 #define FDEBUG_LOG_FAST_PATH if (debug_fast_path) fprintf
 
